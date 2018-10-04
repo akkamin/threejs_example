@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.js"></script>
+</head>
+<body>
+
+<div class="top-background">
+    <div class="ui centered huge header">
+        Threejs / webGL: Making 3D visualizations accessible to everyone
+    </div>
+</div>
+
+
+<div class="middle-background">
+  <div class="ui centered two column grid container">
+    <div class="column">
+        <h2>liquid Argon Simulation</h2><br><br>
+        <p class="argon">A very basic simulation of liquid argon was created in fortran and then rendered using threejs. It utilized the example code on the threejs website <a href="https://threejs.org/examples/?q=wave#canvas_particles_waves" target="_blank" rel="noopener">here.</a> I just mapped the particle positions to ones I got from my simulation. Literally nothing special was done, but its another example of how anyone can use this framework to create 3d visualizations.
+        </p>
+        <br>
+        <br>
+        <button class="ui inverted red button" onclick="location.href='argon_simulation/argon_simulation.html';"
+        >View</button>
+        
+    </div>
+    <div class="column">
+        <h2>Importing a rigged and animated object from blender to webGL</h2><br><br>
+        <p class="argon">This is another example of utilizing a threejs provided example and inputting your own files into it. The original example can be found <a href="https://threejs.org/examples/?q=wave#canvas_particles_waves" target="_blank" rel="noopener">here.</a>. The mesh was created and animated in the free 3d modeling program <a href="https://www.blender.org/" target="_blank" rel="noopener">Blender</a> then exported as a glb file. The glb file was then rendered using webGL and Threejs. <a href="https://github.com/KhronosGroup/glTF-Blender-Exporter" target="_blank" rel="noopener">This</a> was the blender addon used to export the mesh.
+        </p>
+        <br>
+        <br>
+        <button class="ui inverted teal button" onclick="location.href='webgl_loader_gltf.html';">View</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="footer-background">
+
+  <div class="ui container">
+
+    <div class="ui one column grid middle container">
+      <div class="column">
+        While certainly not amazing visualizations by any means, the vizualization perhaps lend themselves as "inspiration" (I hope). Threejs has a rich set of examples that can help anyone who wants to add 3D visualizations into their projects. Certainly if you want to go more indepth in creating even better visualizations with threejs,  this will not help you, however I do think it can serve as an example that anyone can use this framework. 
+          
+          Honestly, nothing produced here was truly original. I do blender modeling as a hobby and have no real talent for it (making that simple model took at least a week of on and off work) and writing the actual simulation for the liquid took a lot of assistance from peers. The results (at least in my opinion) don't look too bad however, so think about it, if I could do this, you can produce even better things in threejs.   
+        <hr/>
+        <div class="ui list">
+          <div class="item">Aidan Akamine</div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<script>
+  $('.ui.dropdown')
+      .dropdown()
+  ;
+</script>
+
+</body>
+</html>

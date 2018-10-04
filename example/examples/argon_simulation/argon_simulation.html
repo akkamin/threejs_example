@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Liquid Argon Simulation</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				background-color: #000000;
+				margin: 0px;
+				overflow: hidden;
+			}
+
+			a {
+				color:#0078ff;
+			} 
+            #info {
+				color: #fff;
+				position: absolute;
+				top: 10px;
+				width: 100%;
+				text-align: center;
+				z-index: 100;
+				display:block;
+			}
+            
+            #about {
+                background-color:aliceblue;
+                width: 200px;
+                height: 600px;
+                margin-right: 20px;
+                margin-top: 20px;
+                float:right;
+                text-align: center;
+                            
+            }
+		</style>
+	</head>
+	<body>
+        <div id="info">
+			<a href="http://threejs.org" target="_blank" rel="noopener">three.js</a> - Canvas<br />
+			Liquid Argon Simulation<br/>
+            <a href="../landing_project2.html" target="_blank" rel=noopener>Back To Home</a>
+		</div>
+		<script src="../../build/three.js"></script>
+
+		<script src="../js/renderers/Projector.js"></script>
+		<script src="../js/renderers/CanvasRenderer.js"></script>
+        <script src="../js/controls/OrbitControls.js"></script>
+		<script src="../js/libs/stats.min.js"></script>
+        <script src="argon_positions.js"></script>
+        <script src="argon_json_to_array.js"></script>
+
+		<script>
+            
+            console.log(argon_positions[0]);
+        //create array of data
+            var argon_position_array = argon_json_to_array(argon_positions);
+
+            var total_argon_atoms = argon_position_array[0].length;
+            
+        //total number of frames in the simulations
+            var frames = argon_position_array.length;
+        //current frame being rendered
+            var curr_frame = 0;
+        
+         //values used for positioning simulaiton    
+            var z_offset = 100;
+            var scale = 50;
+          
+            var particle_scale = 4;
+			var container, stats;
+			var camera, scene, renderer;
+
+			var particles, particle;
+
+			var mouseX = 0, mouseY = 0;
+
+			var windowHalfX = window.innerWidth / 2;
+			var windowHalfY = window.innerHeight / 2;
+            
+            var delay = 4;
+            var time = 0;
+            
+            var SEPARATION = 100, AMOUNTX = 50, AMOUNTY = 50;
+            
+            
+
+			init();
+			animate();
+
+			function init() {
+
+				container = document.createElement( 'div' );
+				document.body.appendChild( container );
+                
+                camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 10000 );
+				camera.position.set( 1000, 50, 1500 );
+
+				scene = new THREE.Scene();
+
+				particles = new Array();
+
+				var PI2 = Math.PI * 2;
+				var material = new THREE.SpriteCanvasMaterial( {
+
+					color: 0xffffff,
+					program: function ( context ) {
+
+						context.beginPath();
+						context.arc( 0, 0, 0.5, 0, PI2, true );
+						context.fill();
+
+					}
+
+				} );
+
+
+             //create particles and set positions to be in first frame (frame 0) 
+                for ( var ix = 0; ix < total_argon_atoms; ix ++ ) {
+
+                    particle = particles[ix] = new THREE.Sprite( material );
+                    particle.position.x = argon_position_array[0][ix][0] * scale;
+                    particle.position.y = argon_position_array[0][ix][1] * scale;
+                    particle.position.z = z_offset + (argon_position_array[0][ix][2] * scale);
+                    particle.scale = particle_scale;
+                    scene.add( particle );
+
+
+				}
+             
+				renderer = new THREE.CanvasRenderer();
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				container.appendChild( renderer.domElement );
+
+                				// controls
+				var controls = new THREE.OrbitControls( camera, renderer.domElement );
+				controls.maxPolarAngle = Math.PI;
+				controls.minDistance = 1000;
+				controls.maxDistance = 5000;
+                
+				stats = new Stats();
+				container.appendChild( stats.dom );
+
+				window.addEventListener( 'resize', onWindowResize, false );
+			}
+
+            
+			function onWindowResize() {
+                
+                camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+            
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+               
+				    render();
+				    stats.update();
+                               
+
+			}
+
+            
+            
+			function render() {
+
+                curr_frame = curr_frame % (frames);             
+                time++;
+                if((time % delay) == 0) {
+                    time = 0;
+                    for ( var ix = 0; ix < total_argon_atoms; ix ++ ) {
+
+                        particle = particles[ix];
+                        particle.position.x = argon_position_array[curr_frame][ix][0] * scale;
+                        particle.position.y = argon_position_array[curr_frame][ix][1] * scale;
+                        particle.position.z = (argon_position_array[curr_frame][ix][2] * scale) + z_offset;
+                        
+                        particle.scale.x = particle.scale.y = particle.scale.z = particle_scale;
+                        scene.add( particle );
+
+
+				    }
+                    curr_frame++;
+                }
+                    
+				renderer.render( scene, camera );
+
+			}
+
+		</script>
+	</body>
+</html>

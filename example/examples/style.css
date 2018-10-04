@@ -1,0 +1,41 @@
+.ui.borderless.topmenu.menu {
+  box-shadow: none;
+  border: none;
+}
+
+.ui.borderless.middlemenu.menu {
+  box-shadow: none;
+  border: none;
+
+}
+
+ui.three.column.grid.middle.container {
+  color: whitesmoke;
+}
+
+.middle-background {
+  background: url('http://murphyshawaii.com/media/2014/04/murphys-front.jpg') no-repeat center center fixed;
+  height: 400px;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  color: whitesmoke;
+}
+
+.footer-background {
+  background-color: #004030;
+  height: 200px;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  color: whitesmoke;
+}
+.argon {
+    text-align: left;
+}
+
+.top-background {
+  background: url('https://www.gohawaii.com/sites/default/files/styles/image_gallery_bg_xl/public/hero-unit-images/11300.jpg?itok=wyadkd4G') no-repeat center center fixed;
+  height: 100px;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  color: black;
+}
