@@ -38,43 +38,47 @@
         <div class="button" id="button-03">idle</div>
             
         </div>
-
-        <script src="js/libs/dat.gui.min.js"></script>
         
+    //threejs and webgl files    
+        <script src="js/libs/dat.gui.min.js"></script>
 		<script src="../build/three.js"></script>
-
 		<script src="js/controls/OrbitControls.js"></script>
 		<script src="js/loaders/GLTFLoader.js"></script>
-
 		<script src="js/WebGL.js"></script>
 		<script src="js/libs/stats.min.js"></script>
         
 
 		<script>
-
+        //webGL stuff    
 			if ( WEBGL.isWebGLAvailable() === false ) {
 
 				document.body.appendChild( WEBGL.getWebGLErrorMessage() );
 
 			}
 
+        //scene variables
 			var container, stats, controls;
 			var camera, scene, renderer, light;
             var mesh, mixer;
+            
+        //animations come in an array
             var animations;
-                        
+                   
+        //booleans to control animations    
             var animation_types = {
                 walk: true,
                 run: false,
                 idle: false
             };
 
+        //buttons to toggle animations
             var button01 = document.getElementById('button-01');
             var button02 = document.getElementById('button-02');
             var button03 = document.getElementById('button-03');
  
             
-			init();
+		//start rendering scene
+            init();
 			animate();
 
 			function init() {
@@ -84,21 +88,13 @@
 
 				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.25, 20 );
 				camera.position.set( 0, 2, 2.7 );
-
+            
+            //set how camera moves in scene
 				controls = new THREE.OrbitControls( camera );
 				controls.target.set( 0, 1.5, 0 );
 				controls.update();
 
-				// envmap
-                /*
-				var path = 'textures/cube/Bridge2/';
-				var format = '.jpg';
-				var envMap = new THREE.CubeTextureLoader().load( [
-					path + 'posx' + format, path + 'negx' + format,
-					path + 'posy' + format, path + 'negy' + format,
-					path + 'posz' + format, path + 'negz' + format
-				] );
-*/
+                
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0xcce0ff );
 
@@ -109,14 +105,17 @@
 				// model
 				var loader = new THREE.GLTFLoader();
 				loader.load( 'models/gltf/human_only_unity_glb_3.glb', function ( gltf ) {
-                //loader.load( 'models/gltf/Horse.glb', function ( gltf ) {
-
                     
                     mesh = gltf.scene;
                     mesh.position.y = 0;
                     
+                // animations is an array that holds the animations, if you view the 
+                //file in a gltf viewer, the order of the animations is the order of the array
+        
                     animations = gltf.animations;
                     mixer = new THREE.AnimationMixer(mesh);
+                    
+                    
                     scene.add(mesh);
                     
     
@@ -125,7 +124,7 @@
 					console.error( e );
 
 				} );
-
+            //more webGL stuff    
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
@@ -137,7 +136,8 @@
 				// stats
 				stats = new Stats();
 				container.appendChild( stats.dom );
-                
+             
+            //buttons    
                 button01.onclick = function () {
                     animation_types.run = false;
                     animation_types.idle = false;
@@ -172,13 +172,10 @@
 			}
 
             
-			//
-
+			
 			function animate() {
 
 				requestAnimationFrame( animate );
-
-				//renderer.render( scene, camera );
 
                 render();
 				stats.update();
@@ -186,7 +183,11 @@
 			}
             
             var prevTime = Date.now();
+        
             
+        //note: there is a "Cannot read property 'clipAction' of undefined" that 
+        //occures when an animation is toggled, however it still works.  
+        //render gets called in animate    
             function render() {
                 
                 console.log("walk is: " + animation_types.walk + "    idle is: " + animation_types.idle);
