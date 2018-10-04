@@ -13,7 +13,9 @@ of the files will not be able to load due to cross referencing.
 -the glb file often gets messed up during transfer, 
 especially if there is limited space on wherever this will be hosted. Unless the animation size is small
 or there is a lot of space on the webserver, i do not recommend trying to load 3d glb models. 
-This is more proof that it actually works
+This is more proof that it actually works sometimes it takes multiple uploads of the glb file
+before it works. glb files can also be viewed at https://gltf-viewer.donmccurdy.com/ to make sure they actually
+work.
 
 -landing_project2.html is the "homepage" 
 
