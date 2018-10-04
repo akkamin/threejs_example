@@ -10,6 +10,11 @@ so if you move files around you will have to update paths
 note: this can only be run on a server, if you try to run in on your local computer some 
 of the files will not be able to load due to cross referencing. 
 
+-the glb file often gets messed up during transfer, 
+especially if there is limited space on wherever this will be hosted. Unless the animation size is small
+or there is a lot of space on the webserver, i do not recommend trying to load 3d glb models. 
+This is more proof that it actually works
+
 -landing_project2.html is the "homepage" 
 
 -the argon_simulation is in the argon folder in the examples folder.
