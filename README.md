@@ -26,6 +26,7 @@ of the files will not be able to load due to cross referencing.
     -you can view glb files using a https://gltf-viewer.donmccurdy.com/ 
     if you make your own to make sure they exported properly.
   
-    -it took a while to figure out the exporting format in blender. I also attached the blender file for refernece.
+    -it took a while to figure out the exporting format in blender. 
+    I also attached the blender file for refernece.
   
 
