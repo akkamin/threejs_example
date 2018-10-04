@@ -27,6 +27,8 @@ of the files will not be able to load due to cross referencing.
     if you make your own to make sure they exported properly.
   
     -it took a while to figure out the exporting format in blender. 
-    I also attached the blender file for refernece.
+    I also attached the blender file for refernece. 
+    In order to view it you will need to download blender
+    and install the gltf addon however, links are in the landing page
   
 
