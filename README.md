@@ -34,6 +34,6 @@ This is more proof that it actually works
     -it took a while to figure out the exporting format in blender. 
     I also attached the blender file for refernece. 
     In order to view it you will need to download blender
-    and install the gltf addon however, links are in the landing page
+    and install the gltf addon, links are in the landing page
   
 
