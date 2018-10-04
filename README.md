@@ -1,6 +1,6 @@
 # threejs_example
 
--note that the pahts for the threejs and loader files are relative to the files that reference them, 
+-note that the paths for the threejs and loader files are relative to the files that reference them, 
 so if you move files around you will have to update paths
 
 -example.zip is the zip file containing the project files
