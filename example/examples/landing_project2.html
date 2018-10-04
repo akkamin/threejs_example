@@ -11,16 +11,28 @@
 <body>
 
 <div class="top-background">
-    <div class="ui centered huge header">
-        Threejs / webGL: Making 3D visualizations accessible to everyone
+    <div class="ui container">
+        <div class="ui one column grid middle container">
+            <h1 class="ui centered small header">Threejs / webGL: Making 3D visualizations accessible to everyone</h1>
+            
+                <a href="https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene" target="_blank" rel="noopener">
+            Threejs documentation</a><br>
+                <a href="https://github.com/akkamin/threejs_example" target="_blank" rel="noopener">
+            Github example</a>
+         
+        </div><br>
     </div>
+
 </div>
 
 
 <div class="middle-background">
   <div class="ui centered two column grid container">
     <div class="column">
-        <h2>liquid Argon Simulation</h2><br><br>
+        <h2>liquid Argon Simulation</h2><br>
+        <h4>
+            <a href="https://github.com/akkamin/threejs_example/blob/master/example/examples/argon_simulation/argon_simulation.html" target="_blank" rel="noopener">Liquid Argon Source Code</a></h4>
+        <br><br>
         <p class="argon">A very basic simulation of liquid argon was created in fortran and then rendered using threejs. It utilized the example code on the threejs website <a href="https://threejs.org/examples/?q=wave#canvas_particles_waves" target="_blank" rel="noopener">here.</a> I just mapped the particle positions to ones I got from my simulation. Literally nothing special was done, but its another example of how anyone can use this framework to create 3d visualizations.
         </p>
         <br>
@@ -30,8 +42,10 @@
         
     </div>
     <div class="column">
-        <h2>Importing a rigged and animated object from blender to webGL</h2><br><br>
-        <p class="argon">This is another example of utilizing a threejs provided example and inputting your own files into it. The original example can be found <a href="https://threejs.org/examples/?q=wave#canvas_particles_waves" target="_blank" rel="noopener">here.</a>. The mesh was created and animated in the free 3d modeling program <a href="https://www.blender.org/" target="_blank" rel="noopener">Blender</a> then exported as a glb file. The glb file was then rendered using webGL and Threejs. <a href="https://github.com/KhronosGroup/glTF-Blender-Exporter" target="_blank" rel="noopener">This</a> was the blender addon used to export the mesh.
+        <h2>Importing a rigged and animated object from blender to webGL</h2><br>
+        <h4><a href="https://github.com/akkamin/threejs_example/blob/master/example/examples/webgl_loader_gltf.html" target="_blank" rel="noopener">Blender animation Source Code</a></h4>
+        <br><br>
+        <p class="argon">This is another example of utilizing a threejs provided example and inputting your own files into it. The original example can be found <a href="https://threejs.org/examples/#webgl_loader_gltf" target="_blank" rel="noopener">here.</a>. The mesh was created and animated in the free 3d modeling program <a href="https://www.blender.org/" target="_blank" rel="noopener">Blender</a> then exported as a glb file. The glb file was then rendered using webGL and Threejs. <a href="https://github.com/KhronosGroup/glTF-Blender-Exporter" target="_blank" rel="noopener">This</a> was the blender addon used to export the mesh.
         </p>
         <br>
         <br>
@@ -47,13 +61,10 @@
 
     <div class="ui one column grid middle container">
       <div class="column">
-        While certainly not amazing visualizations by any means, the vizualization perhaps lend themselves as "inspiration" (I hope). Threejs has a rich set of examples that can help anyone who wants to add 3D visualizations into their projects. Certainly if you want to go more indepth in creating even better visualizations with threejs,  this will not help you, however I do think it can serve as an example that anyone can use this framework. 
+        Threejs already has a rich set of examples that can help anyone who wants to add 3D visualizations into their projects. Certainly if you want to go more indepth in creating even better visualizations with threejs,  this will not help you, however I do think it can serve as an example that anyone can use this framework. 
           
           Honestly, nothing produced here was truly original. I do blender modeling as a hobby and have no real talent for it (making that simple model took at least a week of on and off work) and writing the actual simulation for the liquid took a lot of assistance from peers. The results (at least in my opinion) don't look too bad however, so think about it, if I could do this, you can produce even better things in threejs.   
         <hr/>
-        <div class="ui list">
-          <div class="item">Aidan Akamine</div>
-        </div>
       </div>
 
 
