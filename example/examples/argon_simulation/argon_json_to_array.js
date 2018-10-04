@@ -1,4 +1,10 @@
-function argon_json_to_array (json_array) {
+function argon_json_to_array (json_array, number_of_atoms) {
+    
+/* creates a 2d array argon_array[i][j] where 
+    i = number of frames in the simulaiton
+    j = number of atoms in the simulations
+*/
+    //***note 1000 is the number of atoms in the argon simulation
     
     var argon_array = [];
     var count = 0;
@@ -11,6 +17,9 @@ function argon_json_to_array (json_array) {
         }
         argon_array.push(temp);
     }
+    
+
+    
     return argon_array;
 }
 

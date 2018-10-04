@@ -42,12 +42,15 @@
 			Liquid Argon Simulation<br/>
             <a href="../landing_project2.html" target="_blank" rel=noopener>Back To Home</a>
 		</div>
+        
+    //threejs files    
 		<script src="../../build/three.js"></script>
-
 		<script src="../js/renderers/Projector.js"></script>
 		<script src="../js/renderers/CanvasRenderer.js"></script>
         <script src="../js/controls/OrbitControls.js"></script>
 		<script src="../js/libs/stats.min.js"></script>
+        
+        
         <script src="argon_positions.js"></script>
         <script src="argon_json_to_array.js"></script>
 
@@ -67,28 +70,28 @@
          //values used for positioning simulaiton    
             var z_offset = 100;
             var scale = 50;
-          
+            
+          //scaling of particles
             var particle_scale = 4;
+            
+        //threejs variables    
 			var container, stats;
 			var camera, scene, renderer;
-
 			var particles, particle;
-
 			var mouseX = 0, mouseY = 0;
-
 			var windowHalfX = window.innerWidth / 2;
 			var windowHalfY = window.innerHeight / 2;
             
+        //counters i use to delay the animation   
             var delay = 4;
             var time = 0;
             
-            var SEPARATION = 100, AMOUNTX = 50, AMOUNTY = 50;
-            
-            
-
+        //run program
 			init();
 			animate();
 
+            
+        //initialize the threejs scene    
 			function init() {
 
 				container = document.createElement( 'div' );
@@ -134,7 +137,7 @@
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );
 
-                				// controls
+            // camera controls
 				var controls = new THREE.OrbitControls( camera, renderer.domElement );
 				controls.maxPolarAngle = Math.PI;
 				controls.minDistance = 1000;
@@ -169,7 +172,7 @@
 			}
 
             
-            
+        //this gets called in the animate function above.
 			function render() {
 
                 curr_frame = curr_frame % (frames);             
